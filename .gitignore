@@ -19,5 +19,11 @@ local.properties
 .classpath
 .project
 
-# Mac files
+# Mac OS X custom attribute files
 .DS_Store
+
+# Virtualenv
+.Python
+bin
+lib
+include

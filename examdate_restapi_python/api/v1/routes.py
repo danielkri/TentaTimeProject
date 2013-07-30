@@ -12,29 +12,26 @@ def exams():
 	if request.method == 'GET':
 		code = request.args.get('course_code')
 		name = request.args.get('course_name')
-		#year = request.args.get('ac_year') not compatible w studieportalen yet
-	
-
+		new_url = ""
 		if name is None and code is not None:
-				try:
-					json_result = parseFast(default_url +'&search_course_code='+code)
-				except Exception:
-					return not_found()
+				
+					new_url = default_url +'&search_course_code='+code
+
 		elif code is None and name is not None:
-				try:	
-					json_result = parseFast(default_url +'&search_course_name='+name)
-				except Exception:
-					return not_found()	
+
+					new_url = default_url +'&search_course_name='+name
+
 		elif code is not None and name is not None:
-				try:
-					json_result = parseFast(default_url +'&search_course_code='+code+'&search_course_name='+name)
-				except Exception:
-					return not_found()
+
+					new_url= default_url  +'&search_course_code='+code+'&search_course_name='+name
+
 		else:
-				try:
-					json_result = parseFast(default_url) #Gets all exams
-				except Exception:
-					return not_found()
+				new_url = default_url
+
+		try:
+			json_result = parseFast(new_url) #Gets all exams
+		except Exception:
+			return not_found()
 		resp = jsonify(exams=json_result)
 		resp.status_code = 200
 		return resp

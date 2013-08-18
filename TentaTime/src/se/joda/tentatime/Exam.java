@@ -11,6 +11,8 @@ import android.os.Parcelable;
 
 /**
  * @author Daniel Kristoffersson
+ * @author Joseph Hejderup
+ * @author jhejderup
  * This class contains all the essential information for an exam.
  */
 public class Exam implements Parcelable{

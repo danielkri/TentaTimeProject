@@ -20,17 +20,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.UnknownHostException;
 import java.util.List;
 
 
 /**
  * Created by daniel on 8/6/13.
+ *
+ * Copyright (c) Joseph Hejderup & Daniel Kristoffersson, All rights reserved.
+ * See License.txt in the project root for license information.
  */
 public class FindExamActivity extends Activity {
 
     Button btn;
 //    String url = "http://tentatime-jhejderup.rhcloud.com/v1/exams.json/dat050";
-    String url = "http://tentatime-jhejderup.rhcloud.com/v1/exams.json?course_name=matematik";
+//    String url = "http://tentatime-jhejderup.rhcloud.com/v1/exams.json?course_name=matematik";
+    String url = "http://abc.com";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,13 +50,13 @@ public class FindExamActivity extends Activity {
                 DownloadJsonTask task = new DownloadJsonTask();
                 task.execute(url);
 
-                Intent intent = new Intent(FindExamActivity.this, Result.class);
-                Bundle b = new Bundle();
+                //Intent intent = new Intent(FindExamActivity.this, Result.class);
+                //Bundle b = new Bundle();
                 //b.putString("url", "http://tentatime-jhejderup.rhcloud.com/v1/exams.json/dat050"); // the url)
-                b.putString("url", url); // the url)
-                intent.putExtras(b); //put the url to the next Intent
-                startActivity(intent);
-                finish();
+                //b.putString("url", url); // the url)
+                //intent.putExtras(b); //put the url to the next Intent
+                //startActivity(intent);
+                //finish();
             }
         });
     }
@@ -62,6 +67,7 @@ public class FindExamActivity extends Activity {
             //TODO: check that only one url exists!
             SearchResponse response = new SearchResponse();
             for (String url : urls) {
+                //TODO: add handling of missing internet conenctivity...
                 DefaultHttpClient client = new DefaultHttpClient();
                 HttpGet httpGet = new HttpGet(url);
                 try {
@@ -73,6 +79,8 @@ public class FindExamActivity extends Activity {
                     response = gson.fromJson(reader, SearchResponse.class); //TODO: check json for null...
                 } catch (Exception e) {
                     e.printStackTrace();
+                    //onPostExecute will handle this instead...
+                    response = null;
                 }
             }
             return response;
@@ -80,7 +88,15 @@ public class FindExamActivity extends Activity {
         @Override
         protected void onPostExecute(SearchResponse response) {
             //TODO: fix return to main thread.
-            List<ExamResult> results = response.getResults();
+
+            List<ExamResult> results;
+
+            if(response != null)
+                results = response.getResults();
+            else
+            //Todo: make a toast: list is empty...
+                Toast.makeText(getApplicationContext(), "No exams were found, please try again!", Toast.LENGTH_LONG).show();
+
         }
     }
 }

@@ -26,18 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Result"
-            android:label="Result of Search">
-        </activity>
-        <activity
-            android:name="se.joda.tentatime.ExamDetailActivity"
-            android:label="@string/title_exam_detail"
-            android:parentActivityName=".ExamListActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ExamListActivity" />
-        </activity>
     </application>
 
 </manifest>

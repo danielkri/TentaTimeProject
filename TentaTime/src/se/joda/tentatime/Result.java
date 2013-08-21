@@ -29,6 +29,5 @@ public class Result extends Activity {
 
         Bundle b = getIntent().getExtras();
         url = b.getString("url");
-        System.out.println("Not here...");
     }
 }

@@ -1,26 +1,19 @@
 package se.joda.tentatime;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.UnknownHostException;
 import java.util.List;
 
 
@@ -33,9 +26,8 @@ import java.util.List;
 public class FindExamActivity extends Activity {
 
     Button btn;
-//    String url = "http://tentatime-jhejderup.rhcloud.com/v1/exams.json/dat050";
+    String url = "http://tentatime-jhejderup.rhcloud.com/v1/exams.json/dat050";
 //    String url = "http://tentatime-jhejderup.rhcloud.com/v1/exams.json?course_name=matematik";
-    String url = "http://abc.com";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

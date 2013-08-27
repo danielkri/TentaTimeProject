@@ -14,6 +14,8 @@ import android.net.NetworkInfo;
  * This class validates all the input necessary for an exam to be created.
  * @author Daniel Kristoffersson
  *
+ * Copyright (c) Joseph Hejderup & Daniel Kristoffersson, All rights reserved.
+ * See License.txt in the project root for license information.
  */
 public class InputUtility {
 
@@ -216,7 +218,7 @@ public class InputUtility {
 	
 	/**
 	 * This method will convert the first letter to a capital letter
-	 * @param the string to be converted
+	 * @param data The string to be converted
 	 * @return string with the first letter as capital
 	 */
 	public static String convertFirstLetterToCapital(String data){

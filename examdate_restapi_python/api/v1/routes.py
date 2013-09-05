@@ -2,6 +2,8 @@
 from flask import Flask, request, jsonify
 from htmlparser.SpExamParser import parse
 
+#TODO: maybe introduce earlier validation to give error to the user as quick as possible
+
 app = Flask(__name__)
 
 

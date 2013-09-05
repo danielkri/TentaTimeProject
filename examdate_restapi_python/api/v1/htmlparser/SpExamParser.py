@@ -7,6 +7,7 @@ from stuportalurl import getHTMLDoc
 import re
 
 #TODO: find a beutiful way to handle the parameters
+#TODO: Fix the format with the name and exam_date
 #TODO: Make a test suite
 #TODO: Parse the other stuportal link
 

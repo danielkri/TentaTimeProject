@@ -9,6 +9,8 @@ from url_validate import Validate
 "Artifical Enum for URL spedifications for Studentportalen (ENUM not yet supported on pre PEP-435)"
 class Stupolen:
 	URL = 'https://www.student.chalmers.se/sp/examdates_list?flag=1&sortorder=C_CODE&CM_CODE&EX_DATE'
+	SET_LANG_EN = 'https://www.student.chalmers.se/sp/setLang?lang=en'
+	SET_LANG_SE =' https://www.student.chalmers.se/sp/setLang?lang=sv'
 	CODE = "&search_course_code="
 	NAME = "&search_course_name="
 	OFFSET = "&query_start="
@@ -27,8 +29,9 @@ def getHTMLDoc(**kwargs):
 "Build the request URL"
 def buildBaseURL(code=None,name=None,offset=None,limit=None):
 	#Check first whether we have any arguments provided to the function
+
 	if code is None and name is None:
-		raise Exception("Neither a course name or a course code was provided")
+		return Stupolen.URL+addURLargs(offset,limit)
 
 	vdator = Validate()
 
@@ -67,6 +70,9 @@ def addURLargs(offset=None,limit=None):
 		return Stupolen.OFFSET+str(offset)+Stupolen.LIMIT+str(limit)
 
 if __name__ == '__main__':
+
+	#Test course code
+	getHTMLDoc()
 	#Test course code
 	getHTMLDoc(code='DAT050')
 	#Test course name

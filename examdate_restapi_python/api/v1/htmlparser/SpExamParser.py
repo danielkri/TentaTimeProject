@@ -15,7 +15,7 @@ import re
 def parse(code=None,name=None,offset=None,limit=None):
 	#Request the html document 
 	doc = getHTMLDoc(code=code,name=name,offset=offset,limit=limit)
-	#Request the full result if necessary
+	#Request the full result if necessary(if there are more than 20 elements, then there are more results)
 	if offset is None and limit is None and getFullResultList(doc) > 20:
 		doc = getHTMLDoc(code=code,name=name,offset=1,limit=getFullResultList(doc))
 	#list with exam elements
@@ -66,7 +66,7 @@ def getFullResultList(document):
 
 if __name__ == '__main__':
 
-	json_list = parse(name="d")
+	json_list = parse()
 	
 	count = 0
 	for el in json_list:

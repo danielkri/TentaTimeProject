@@ -3,6 +3,7 @@ package com.joda.tentatime;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +14,9 @@ import java.util.ArrayList;
  * Copyright (c) Joseph Hejderup & Daniel Kristoffersson, All rights reserved.
  * See License.txt in the project root for license information.
  */
-public class ExamResult {
+public class ExamResult implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     //May need changing to date or int
     @SerializedName("ac_year")

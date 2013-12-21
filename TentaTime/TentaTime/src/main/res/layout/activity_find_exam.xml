@@ -11,11 +11,14 @@
         android:layout_height="wrap_content"
         android:text="Search"
         android:id="@+id/searchB"
-        android:layout_gravity="center_horizontal|bottom" />
+        android:layout_gravity="left|bottom"
+        android:layout_marginBottom="17dp" />
 
     <EditText
-        android:layout_width="118dp"
+        android:layout_width="286dp"
         android:layout_height="wrap_content"
         android:id="@+id/getExam"
-        android:layout_gravity="center" />
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="15dp" />
+
 </FrameLayout>

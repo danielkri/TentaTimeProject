@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import android.widget.Button;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.EditText;
@@ -51,7 +52,7 @@ public class FindExamActivity extends Activity implements OnClickListener {
         Button btn = (Button) findViewById(R.id.searchB);
         btn.setOnClickListener(this);
         mGetExam = (EditText) findViewById(R.id.getExam);
-        //examsView = (ListView) findViewById(R.id.examsLV);
+        examsView = (ListView) findViewById(R.id.examsLV);
         //examsView.setMovementMethod(new ScrollingMovementMethod());
 
     }
@@ -113,12 +114,15 @@ public class FindExamActivity extends Activity implements OnClickListener {
             if (response != null) {
                 results = response.getResults();
 
-                Intent intent = new Intent(FindExamActivity.this, Result.class);
+                for(ExamResult exam: results)
+                    examsView.
+
+                /*Intent intent = new Intent(FindExamActivity.this, Result.class);
                 Bundle b = new Bundle();
                 b.putSerializable("key", (Serializable) results);
                 intent.putExtras(b); //put the list to the next Intent
                 startActivity(intent);
-                finish();
+                finish();*/
 
                 //for(ExamResult exam: results)
                 //examsView.append(exam.getName() + "\n");

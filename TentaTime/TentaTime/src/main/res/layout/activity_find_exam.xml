@@ -21,4 +21,10 @@
         android:layout_gravity="right|bottom"
         android:layout_marginBottom="15dp" />
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="439dp"
+        android:id="@+id/examsLV"
+        android:layout_gravity="left|top" />
+
 </FrameLayout>

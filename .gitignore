@@ -19,5 +19,24 @@ local.properties
 .classpath
 .project
 
-# Mac files
+# Android Studio
+.idea/
+.gradle
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+*.iml
+*.iws
+*.ipr
+*~
+*.swp
+
+# Mac OS X custom attribute files
 .DS_Store
+
+# Virtualenv
+.Python
+bin
+lib
+include

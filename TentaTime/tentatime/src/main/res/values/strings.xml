@@ -4,10 +4,11 @@
     <string name="app_name">TentaTime</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="searchButton">Search</string>
     <string name="examName">Name: </string>
     <string name="examCode">Code: </string>
     <string name="examTime">Time: </string>
     <string name="examDate">Date: </string>
-    <string name="examDescription">Description: </string>
+    <string name="examDescription">Description: </string><string name="inputHint">Search for course ID/Name</string>
 
 </resources>

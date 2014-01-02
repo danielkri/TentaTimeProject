@@ -43,21 +43,4 @@ public class Result extends Activity {
         TextView description = (TextView) findViewById(R.id.examDescription); if (description == null) { Log.w("", "TextView is null"); }
         description.append(exam.getExamDate());
     }
-
-    /*public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        Bundle b = getIntent().getExtras();
-        List<ExamResult> result = (List<ExamResult>)b.getSerializable("key");
-
-        String examNames[] = new String[result.size()];
-        int pos = 0;
-
-        for(ExamResult exam: result) {
-            examNames[pos] = exam.getCode() + ": " + exam.getName() + exam.getBeginsAt() + " " + exam.getExamDate();
-            pos++;
-        }
-
-        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, examNames));
-    }*/
 }
